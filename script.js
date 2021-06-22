@@ -2,10 +2,11 @@
 
 // Make API request function based on user input
 
-// const UserSearch = document.querySelector("#blank")
+
 //uncomment above and delete this:
-const UserSearch = "pikachu"
-console.log(UserSearch)
+// const UserSearch = "pikachu"
+// console.log(UserSearch)
+const form = document.querySelector("form")
 
 const findPokemon = async (input) => {
   try {
@@ -17,7 +18,7 @@ const findPokemon = async (input) => {
     console.error(error)
   }
 }
-findPokemon(UserSearch)
+// findPokemon(UserSearch)
 
 // Find correct information from API and assign to variables
 
@@ -32,7 +33,18 @@ findPokemon(UserSearch)
 
 // Remove old search results
 
-
+function removePrevious() {
+  
+}
 
 
 // Add event listener for search button to trigger functions
+
+form.addEventListener("submit", searchFunction)
+
+function searchFunction(e) {
+  e.preventDefault()
+  const UserSearch = document.querySelector("#blank").value
+  findPokemon(UserSearch)
+  return UserSearch
+}
