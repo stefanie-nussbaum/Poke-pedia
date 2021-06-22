@@ -1,6 +1,6 @@
 # Project Overview
 
-## Poke-pedia
+## Project Name
 
 [Poke-pedia](URL)
 
@@ -58,7 +58,7 @@ This project will be a searchable database of pokemon using the Pokeapi. The use
 ```
 ## Wireframes
 
-[Wireframe](https://wireframe.cc/JXCq7c)
+[Wireframe](./images/Poke-pedia_Wireframe)
 
 ### MVP/PostMVP
 
@@ -92,15 +92,15 @@ This project will be a searchable database of pokemon using the Pokeapi. The use
 
 ## Priority Matrix
 
-[Priority Maxtrix](https://drive.google.com/file/d/1JPGDndO0jxCj68qje1ud68i_fp-1gm7i/view?usp=sharing)
+[Priority Maxtrix](./images/Priority_Matrix)
 
 ## Timeframes
 
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Basic HTML, CSS, JS setup | M | 2hrs| 0hrs | 0hrs |
-| HTML page setup | M | 2hrs| 0hrs | 0hrs |
+| Basic HTML, CSS, JS setup | M | 2hrs| 0.5hrs | 0.5hrs |
+| HTML page setup | M | 2hrs| 1hrs | 1hrs |
 | Setting up API function | H | 3hrs| 0hrs | 0hrs |
 | Header and search/user input | H | 2hrs| 0hrs | 0hrs |
 | Incorporating the user input and API call | H | 2hrs| 0hrs | 0hrs |
@@ -115,7 +115,7 @@ This project will be a searchable database of pokemon using the Pokeapi. The use
 | CSS styling for type effectiveness | L | 3hrs| 0hrs | 0hrs |
 | Create the ability to save favorite pokemon | L | 3hrs| 0hrs | 0hrs |
 | CSS style of the save feature | L | 3hrs| 0hrs | 0hrs |
-| Total | H | 42hrs| 0hrs | 0hrs |
+| Total | H | 42hrs| 1.5hrs | 1.5hrs |
 
 ## Code Snippet
 
