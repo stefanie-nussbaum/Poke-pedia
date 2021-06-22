@@ -1,13 +1,12 @@
 # Project Overview
 
-## Project Name
+## Poke-pedia
 
-Poke-pedia
-[Deployed Project](URL)
+[Poke-pedia](URL)
 
 ## Project Description
 
-This project will be a searchable database of pokemon. The user will be able to search for a pokemon by name and see lots of information about it such as the type(s), id, height, weight, and an image. The user will also get information on effective types of pokemon to use against the selected pokemon in a battle.
+This project will be a searchable database of pokemon using the Pokeapi. The user will be able to search for a pokemon by name and see lots of information about it such as the type(s), id, height, weight, and an image. The user will also get information on effective types of pokemon to use against the selected pokemon in a battle. The user will also be able to save pokemon to their favorites to come back to later.
 
 ## API and Data Sample
 
@@ -84,7 +83,7 @@ This project will be a searchable database of pokemon. The user will be able to 
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|June 21| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
+|June 21| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
 |June 22| Project Approval / Core Application Structure (HTML, CSS, etc.) / Pseudocode | Incomplete
 |June 23| HTML setup / style HTML elements / Set up API / DOM Output data | Incomplete
 |June 24| Style output data / resposive styling / MVP | Incomplete
@@ -93,13 +92,10 @@ This project will be a searchable database of pokemon. The user will be able to 
 
 ## Priority Matrix
 
-![Priority Maxtrix](/images/priority-matrix.png)
+[Priority Maxtrix](https://drive.google.com/file/d/1JPGDndO0jxCj68qje1ud68i_fp-1gm7i/view?usp=sharing)
 
 ## Timeframes
 
-Tell us how long you anticipate spending on each area of development. Be sure to consider how many hours a day you plan to be coding and how many days you have available until presentation day.
-
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
@@ -119,7 +115,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | CSS styling for type effectiveness | H | 3hrs| 0hrs | 0hrs |
 | Create the ability to save favorite pokemon | H | 3hrs| 0hrs | 0hrs |
 | CSS style of the save feature | H | 3hrs| 0hrs | 0hrs |
-| Total | H | hrs| 0hrs | 0hrs |
+| Total | H | 42hrs| 0hrs | 0hrs |
 
 ## Code Snippet
 
