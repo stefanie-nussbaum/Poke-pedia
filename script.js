@@ -23,6 +23,7 @@ const findPokemon = async (input) => {
     pokemonInfo.classList = "pokemon-info"
     
     const name = document.createElement("h2")
+    const addFavorite = document.createElement("button")
     const id = document.createElement("p")
     let types = document.createElement("p")
     const height = document.createElement("p")
@@ -80,7 +81,7 @@ function capitalize (word) {
 
 // Function to anazlye and add a second type if necessary
 function secondType(array, string) {
-  return string.concat(`, ${array[1].type.name}`)
+  return string = `Types: ${array[0].type.name}, ${array[1].type.name}`
 }
 
 
