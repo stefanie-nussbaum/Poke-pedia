@@ -20,6 +20,7 @@ const findPokemon = async (input) => {
     //append html elements to the page
 
     const pokemonInfo = document.createElement("div")
+    pokemonInfo.classList = "pokemon-info"
     
     const name = document.createElement("h2")
     const id = document.createElement("p")
@@ -30,7 +31,7 @@ const findPokemon = async (input) => {
     
     // assign data from api
     name.innerText = capitalize(response.data.name)
-    id.innerText = `Id# ${response.data.id}`
+    id.innerText = `ID# ${response.data.id}`
     const imageURL = response.data.sprites.other["official-artwork"].front_default
     image.setAttribute("src", imageURL)
     // image.setAttribute("alt", `${name}`)
@@ -39,25 +40,16 @@ const findPokemon = async (input) => {
     types.innerText = `Type(s): ${typeArray[0].type.name}`
 
 
-    // Need to 
+    // Need to check if ther is a second type and call a function to log it
     if (typeof typeArray[1] !== "undefined") {
       secondType(typeArray, types.innerText)
     } else {
       // return typeArray
     }
 
-    //Need some kind of loop to add
+    
 
-    // [0].type.name
-    // const type2 = response.data.types[1].type.name
-    //Some logic here for if only one type?
-    // if (type2 === undefined) {
-    //   types.innerText = `Type: ${type1}`
-    // } else {
-      // types.innerText = `Type: ${type1}, ${type2}`
-    // }
-
-    //Should change units to m and lbs/kg (something that makes sense)
+    //Should change units to m and lbs or kg (something that makes sense)
     height.innerText = `Height: ${response.data.height}`
     weight.innerText = `Weight: ${response.data.weight}`
 
@@ -88,7 +80,7 @@ function capitalize (word) {
 
 // Function to anazlye and add a second type if necessary
 function secondType(array, string) {
-  return string.concat(', ', array[1].type.name)
+  return string.concat(`, ${array[1].type.name}`)
 }
 
 

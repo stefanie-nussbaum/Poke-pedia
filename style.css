@@ -46,6 +46,13 @@ button:hover {
 
 }
 
+.pokemon-info {
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-start;
+  margin: 50px 0 0 20px;
+}
+
 
 #pokeball {
   width: 40px;
@@ -61,5 +68,6 @@ button:hover {
 }
 
 #basic-info {
+  display: flex;
 
 }
