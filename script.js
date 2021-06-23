@@ -38,7 +38,7 @@ const findPokemon = async (input) => {
     console.log(typeArray)
     types.innerText = `Type(s): ${typeArray[0].type.name}`
 
-    if (typeArray.length === 2) {
+    if (typeof typeArray[1] !== undefined) {
       secondType(typeArray, types.innerText)
     }
 
