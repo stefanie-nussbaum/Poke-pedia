@@ -38,7 +38,7 @@ const findPokemon = async (input) => {
     console.log(typeArray)
     types.innerText = `Type(s): ${typeArray[0].type.name}`
 
-    if (typeof typeArray[1] !== undefined) {
+    if (typeof typeArray[1] != undefined) {
       secondType(typeArray, types.innerText)
     }
 
@@ -52,6 +52,8 @@ const findPokemon = async (input) => {
     // } else {
       // types.innerText = `Type: ${type1}, ${type2}`
     // }
+
+    //Should change units to m and lbs/kg (something that makes sense)
     height.innerText = `Height: ${response.data.height}`
     weight.innerText = `Weight: ${response.data.weight}`
 

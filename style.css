@@ -1,0 +1,60 @@
+
+header {
+  display: flex;
+  justify-content: center;
+  flex-wrap: row wrap;
+
+}
+
+body {
+ background-image: url("./images/background2.png");
+ background-repeat: no-repeat;
+ background-position: center;
+ background-size: auto 100%;
+
+}
+
+h1 {
+  display: flex;
+  flex-direction: row;
+  font-family: "Notable", sans-serif;
+  font-size: 40px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  height: 25px;
+}
+
+button {
+  padding: 5px 10px;
+  border: 2px solid black;
+  margin-left: 5px;
+}
+
+button:hover {
+  padding: 5px 10px;
+  background-image: url(./images/det-pikachu.jpeg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+
+
+#pokeball {
+  width: 40px;
+  height: 40px;
+  margin-top: 29px;
+}
+
+#data-container {
+  display: flex;
+  flex-wrap: row wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
