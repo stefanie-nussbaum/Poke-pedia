@@ -23,30 +23,40 @@ const findPokemon = async (input) => {
     
     const name = document.createElement("h2")
     const id = document.createElement("p")
-    const types = document.createElement("p")
+    let types = document.createElement("p")
     const height = document.createElement("p")
     const weight = document.createElement("p")
     const image = document.createElement("img")
     
     // assign data from api
-    name.innerText = response.data.name
+    name.innerText = capitalize(response.data.name)
     id.innerText = `Id# ${response.data.id}`
-    // const imageURL = response.data.sprites.other.official-artwork.front_default
-    // image.setAttribute("src", imageURL)
+    const imageURL = response.data.sprites.other["official-artwork"].front_default
+    image.setAttribute("src", imageURL)
     // image.setAttribute("alt", `${name}`)
-    const type1 = response.data.types[0].type.name
-    const type2 = response.data.types[1].type.name
-    //Some logic here for if only one type?
-    if (type2 === undefined) {
-      types.innerText = `Type: ${type1}`
-    } else {
-      types.innerText = `Type: ${type1}, ${type2}`
+    const typeArray = response.data.types
+    console.log(typeArray)
+    types.innerText = `Type(s): ${typeArray[0].type.name}`
+
+    if (typeArray.length === 2) {
+      secondType(typeArray, types.innerText)
     }
-    height.innerText = `Height: ${response.data.height}dm`
+
+    //Need some kind of loop to add
+
+    // [0].type.name
+    // const type2 = response.data.types[1].type.name
+    //Some logic here for if only one type?
+    // if (type2 === undefined) {
+    //   types.innerText = `Type: ${type1}`
+    // } else {
+      // types.innerText = `Type: ${type1}, ${type2}`
+    // }
+    height.innerText = `Height: ${response.data.height}`
     weight.innerText = `Weight: ${response.data.weight}`
 
     // create html elements and show results on page
-    // pokemonDataContainer.append(image)
+    pokemonDataContainer.append(image)
     pokemonDataContainer.append(pokemonInfo)
     pokemonInfo.append(name)
     pokemonInfo.append(id)
@@ -55,21 +65,33 @@ const findPokemon = async (input) => {
     pokemonInfo.append(weight)
 
 
+
+
+    return response
   } catch (error) {
     console.error(error)
   }
 }
 // findPokemon(UserSearch)
 
+// Capitalize function
 
+function capitalize (word) {
+  return word.charAt(0).toUpperCase() + word.slice(1)
+}
 
-
+// Function to anazlye and add a second type if necessary
+function secondType(array, string) {
+  return string.concat(', ', array[1].type.name)
+}
 
 
 // Remove old search results
 
 function removePrevious() {
-  
+  while (pokemonDataContainer.lastChild) {
+    pokemonDataContainer.removeChild(pokemonDataContainer.lastChild)
+  }
 }
 
 
@@ -80,6 +102,7 @@ form.addEventListener("submit", searchFunction)
 function searchFunction(e) {
   e.preventDefault()
   const UserSearch = document.querySelector("#blank").value
+  removePrevious()
   findPokemon(UserSearch)
   return UserSearch
 }
