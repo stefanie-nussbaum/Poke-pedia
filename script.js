@@ -13,7 +13,7 @@ const findPokemon = async (input) => {
   try {
     const searchURL = `https://pokeapi.co/api/v2/pokemon/${input}/`
     const response = await axios.get(searchURL)
-    // console.log(response.data)
+    console.log(response.data)
 
     // create variables for the info
     
@@ -37,12 +37,16 @@ const findPokemon = async (input) => {
     image.setAttribute("src", imageURL)
     // image.setAttribute("alt", `${name}`)
     const typeArray = response.data.types
-    console.log(typeArray)
-    // types.innerText = `Type(s): ${typeArray[0].type.name}`
+    // console.log(typeArray)
+    types.innerText = `Type(s):`
     
-    types.innerText = typeArray.map(type => (
-      capitalize(` ${type.type.name}`)))
+    types.innerText += typeArray.map(type => (
+    capitalize(` ${type.type.name}`)))
 
+    // should I make another capitalize function that targets 2nd character??
+    // or better if I can just figure out how to concat types to "Type(s):" in innerText
+
+    
     // let typeText = types.innerText
     // let typeArray = []
     // typeText = `Type(s): `

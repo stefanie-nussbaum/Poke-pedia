@@ -48,7 +48,8 @@ button {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-
+  color: transparent;
+  background-color: white;
 }
 
 .pokemon-info {
