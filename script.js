@@ -189,6 +189,9 @@ function removePrevious() {
   while (pokemonDataContainer.lastChild) {
     pokemonDataContainer.removeChild(pokemonDataContainer.lastChild)
   }
+  while (pokemonEffectiveness.lastChild) {
+    pokemonEffectiveness.removeChild(pokemonEffectiveness.lastChild)
+  }
 }
 
 
