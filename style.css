@@ -57,6 +57,11 @@ button {
   margin: 50px 0 0 20px;
 }
 
+.type-effectiveness {
+  font-size: 20px;
+  font-weight: bold;
+}
+
 #search:hover {
   padding: 5px 10px;
   background-image: url(./images/det-pikachu.jpeg);
@@ -83,6 +88,12 @@ button {
 #basic-info {
   display: flex;
 
+}
+
+#effectiveness {
+  display: flex;
+  justify-content: center;
+  flex-wrap: row wrap;
 }
 
 #favoritesButton {

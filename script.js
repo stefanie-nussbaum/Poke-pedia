@@ -3,12 +3,10 @@
 // Make API request function based on user input
 
 
-//uncomment above and delete this:
-// const UserSearch = "pikachu"
-// console.log(UserSearch)
 const form = document.querySelector("#searchForm")
 const fav = document.querySelector(".favButton")
 const pokemonDataContainer = document.querySelector("#data-container")
+const pokemonEffectiveness = document.querySelector("#effectiveness")
 
 const findPokemon = async (input) => {
   try {
@@ -60,8 +58,112 @@ const findPokemon = async (input) => {
     pokemonInfo.append(height)
     pokemonInfo.append(weight)
 
+    const typeInfo = document.createElement("div")
+    typeInfo.className = "type-effectiveness"
+    typeInfo.innerText = `Type Effectiveness of ${capitalize(name.innerText)}`
+    pokemonEffectiveness.append(typeInfo)
 
 
+    // create type logic
+
+    for (let i = 0; i < typeArray.length; i++) {
+      // console.log(typeArray[i].type.name)
+      let type = typeArray[i].type.name
+      const typeRecs = document.createElement('p')
+      typeInfo.append(typeRecs)
+      const typeNotRecs = document.createElement('p')
+      typeInfo.append(typeNotRecs)
+      const noEffect = document.createElement("p")
+      typeInfo.append(noEffect)
+
+      if (type === "normal") {
+        typeRecs.innerText = `${capitalize(type)} type pokemon are not super effective against any other types.`
+        typeNotRecs.innerText = `${capitalize(type)} type pokemon are not very effective against rock and steel types.`
+        noEffect.innerText = `${capitalize(type)} types have no effect against ghost types.`
+
+      } else if (type === "fire") {
+        typeRecs.innerText = `${capitalize(type)} type pokemon are super effective against grass, ice, bug, and steel types.`
+        typeNotRecs.innerText = `${capitalize(type)} type pokemon are not very effective against fire, water, rock, and dragon types.`
+
+      } else if (type === "water") {
+        typeRecs.innerText = `${capitalize(type)} type pokemon are super effective against fire, ground, and rock types.`
+        typeNotRecs.innerText = `${capitalize(type)} type pokemon are not very effective against water, grass, and steel types.`
+
+      } else if (type === "electric") {
+        typeRecs.innerText = `${capitalize(type)} type pokemon are super effective against water and flying types.`
+        typeNotRecs.innerText = `${capitalize(type)} type pokemon are not very effective against electric, grass, and dragon types.`
+        noEffect.innerText = `${capitalize(type)} types have no effect against ground types.`
+
+      } else if (type === "grass") {
+        typeRecs.innerText = `${capitalize(type)} type pokemon are super effective against water, ground, and rock types.`
+        typeNotRecs.innerText = `${capitalize(type)} type pokemon are not very effective against fire, grass, poison, flying, bug, dragon, and steel types.`
+
+      } else if (type === "ice") {
+        typeRecs.innerText = `${capitalize(type)} type pokemon are super effective against grass, ground, flying, and dragon types.`
+        typeNotRecs.innerText = `${capitalize(type)} type pokemon are not very effective against fire, water, ice, and steel types.`
+        
+      } else if (type === "fighting") {
+        typeRecs.innerText = `${capitalize(type)} type pokemon are super effective against normal, ice, rock, dark, and steel types.`
+        typeNotRecs.innerText = `${capitalize(type)} type pokemon are not very effective against poison, flying, psychic, bug, and fairy types.`
+        noEffect.innerText = `${capitalize(type)} types have no effect against ghost types.`
+        
+      } else if (type === "poison") {
+        typeRecs.innerText = `${capitalize(type)} type pokemon are super effective against grass and fairy types.`
+        typeNotRecs.innerText = `${capitalize(type)} type pokemon are not very effective against poison, ground, rock, and ghost types.`
+        noEffect.innerText = `${capitalize(type)} types have no effect against steel types.`
+        
+      } else if (type === "ground") {
+        typeRecs.innerText = `${capitalize(type)} type pokemon are super effective against fire, electric, poison, rock, and steel types.`
+        typeNotRecs.innerText = `${capitalize(type)} type pokemon are not very effective against rock, ghost, or steel types.`
+        noEffect.innerText = `${capitalize(type)} types have no effect against flying types.`
+
+      } else if (type === "flying") {
+        typeRecs.innerText = `${capitalize(type)} type pokemon are super effective against grass, fighting, and bug types.`
+        typeNotRecs.innerText = `${capitalize(type)} type pokemon are not very effective against electric, rock, and steel types.`
+        
+      } else if (type === "psychic") {
+        typeRecs.innerText = `${capitalize(type)} type pokemon are super effective against fighting and poison types.`
+        typeNotRecs.innerText = `${capitalize(type)} type pokemon are not very effective against psychic and steel types.`
+        noEffect.innerText = `${capitalize(type)} types have no effect against dark types.`
+        
+      } else if (type === "bug") {
+        typeRecs.innerText = `${capitalize(type)} type pokemon are super effective against grass, psychic, and dark types.`
+        typeNotRecs.innerText = `${capitalize(type)} type pokemon are not very effective against fire, fighting, poison, flying, ghost, steel, and fairy types.`
+
+      } else if (type === "rock") {
+        typeRecs.innerText = `${capitalize(type)} type pokemon are super effective against fire, ice, flying, and bug types.`
+        typeNotRecs.innerText = `${capitalize(type)} type pokemon are not very effective against fighting, ground, and steel types.`
+        
+      } else if (type === "ghost") {
+        typeRecs.innerText = `${capitalize(type)} type pokemon are super effective against psychic and ghost types.`
+        typeNotRecs.innerText = `${capitalize(type)} type pokemon are not very effective against dark types.`
+        noEffect.innerText = `${capitalize(type)} types have no effect against normal types.`
+        
+      } else if (type === "dragon") {
+        typeRecs.innerText = `${capitalize(type)} type pokemon are super effective against dragon types.`
+        typeNotRecs.innerText = `${capitalize(type)} type pokemon are not very effective against steel types.`
+        noEffect.innerText = `${capitalize(type)} types have no effect against fairy types.`
+        
+      } else if (type === "dark") {
+        typeRecs.innerText = `${capitalize(type)} type pokemon are super effective against psychic and ghost types.`
+        typeNotRecs.innerText = `${capitalize(type)} type pokemon are not very effective against fighting, dark, and fairy types.`
+        
+      } else if (type === "steel") {
+        typeRecs.innerText = `${capitalize(type)} type pokemon are super effective against ice, rock, and fairy types.`
+        typeNotRecs.innerText = `${capitalize(type)} type pokemon are not very effective against fire, water, electric, and steel types.`
+        
+      } else {
+        // only type left should be fairy
+        typeRecs.innerText = `${capitalize(type)} type pokemon are super effective against fighting, dragon, and dark types.`
+        typeNotRecs.innerText = `${capitalize(type)} type pokemon are not very effective against fire, poison, and steel types.`
+      }
+    }
+    // console.log(types)
+    console.log(pokemonEffectiveness)
+
+
+    //Favorites event handler goes inside function?
+    fav.addEventListener("click", saveToFavorites)
 
 
     return response
@@ -110,9 +212,35 @@ function searchFunction(e) {
 
 const favoritesButton = document.querySelector("#favoritesButton")
 
-const saveToFavorites = () => {
-  localStorage.setItem("#data-container")
+function saveToFavorites() {
+  // e.preventDefault
+  let pokemon = {}
+  // pokemon.image = 
+  let nameString = JSON.stringify(response.data.name)
+  localStorage.setItem("name", nameString)
+  console.log(localStorage)
+  // localStorage.setItem("name")
 }
 
 
-fav.addEventListener("click", saveToFavorites)
+// fav.addEventListener("click", saveToFavorites)
+
+
+// View favorites
+
+function viewFavorites() {
+  removePrevious()
+  let savedPokemon = []
+  let keys = Object.keys(localStorage)
+  let i = keys.length
+
+  while (i--) {
+    savedPokemon.push(localStorage.getItem(keys[i]))
+  }
+  return savedPokemon
+}
+
+console.log(localStorage)
+
+
+favoritesButton.addEventListener("click", viewFavorites)
