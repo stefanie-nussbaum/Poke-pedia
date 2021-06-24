@@ -6,7 +6,8 @@
 //uncomment above and delete this:
 // const UserSearch = "pikachu"
 // console.log(UserSearch)
-const form = document.querySelector("form")
+const form = document.querySelector("#searchForm")
+const fav = document.querySelector(".favButton")
 const pokemonDataContainer = document.querySelector("#data-container")
 
 const findPokemon = async (input) => {
@@ -60,6 +61,9 @@ const findPokemon = async (input) => {
     pokemonInfo.append(weight)
 
 
+
+
+
     return response
   } catch (error) {
     console.error(error)
@@ -104,3 +108,11 @@ function searchFunction(e) {
 // Local storage for favorites
 
 
+const favoritesButton = document.querySelector("#favoritesButton")
+
+const saveToFavorites = () => {
+  localStorage.setItem("#data-container")
+}
+
+
+fav.addEventListener("click", saveToFavorites)
