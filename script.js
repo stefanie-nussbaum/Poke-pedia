@@ -13,7 +13,7 @@ const findPokemon = async (input) => {
   try {
     const searchURL = `https://pokeapi.co/api/v2/pokemon/${input}/`
     const response = await axios.get(searchURL)
-    console.log(response.data)
+    // console.log(response.data)
 
     // create variables for the info
     
@@ -25,7 +25,7 @@ const findPokemon = async (input) => {
     const name = document.createElement("h2")
     const addFavorite = document.createElement("button")
     const id = document.createElement("p")
-    let types = document.createElement("p")
+    const types = document.createElement("p")
     const height = document.createElement("p")
     const weight = document.createElement("p")
     const image = document.createElement("img")
@@ -38,21 +38,37 @@ const findPokemon = async (input) => {
     // image.setAttribute("alt", `${name}`)
     const typeArray = response.data.types
     console.log(typeArray)
-    types.innerText = `Type(s): ${typeArray[0].type.name}`
+    // types.innerText = `Type(s): ${typeArray[0].type.name}`
+    
+    types.innerText = typeArray.map(type => (
+      capitalize(` ${type.type.name}`)))
+
+    // let typeText = types.innerText
+    // let typeArray = []
+    // typeText = `Type(s): `
+    // typeArray.forEach()
+
+    // for (let i = 0; i < typeArray.length - 1; i++) {
+    //   if (i === 1) {
+    //     typeText.concat(", ")
+    //   }
+    //   typeText.concat(`${typeArray[i].type.name}`)
+    // }
+    // console.log(typeText)
 
 
-    // Need to check if ther is a second type and call a function to log it
-    if (typeof typeArray[1] !== "undefined") {
-      secondType(typeArray, types.innerText)
-    } else {
-      // return typeArray
-    }
+    // // Need to check if there is a second type and call a function to log it
+    // if (typeof typeArray[1] !== "undefined") {
+    //   secondType(typeArray, types.innerText)
+    // } else {
+    //   // return types.innerText = `Type(s): ${typeArray[0].type.name}`
+    // }
 
     
 
     //Should change units to m and lbs or kg (something that makes sense)
-    height.innerText = `Height: ${response.data.height}`
-    weight.innerText = `Weight: ${response.data.weight}`
+    height.innerText = `Height: ${(response.data.height) / 10}m`
+    weight.innerText = `Weight: ${(response.data.weight) / 10}kg`
 
     // create html elements and show results on page
     pokemonDataContainer.append(image)
