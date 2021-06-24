@@ -85,8 +85,8 @@ This project will be a searchable database of pokemon using the Pokeapi. The use
 |---|---| ---|
 |June 21| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
 |June 22| Project Approval / Core Application Structure (HTML, CSS, etc.) / Pseudocode | Complete
-|June 23| HTML setup / style HTML elements / Set up API / DOM Output data | Incomplete
-|June 24| Style output data / resposive styling / MVP | Incomplete
+|June 23| HTML setup / style HTML elements / Set up API / DOM Output data | Complete
+|June 24| Style output data / resposive styling / MVP | Complete
 |June 25| JS logic / Style logic output / Save feature / RMVP | Incomplete
 |June 28| Presentations | Incomplete
 
@@ -105,17 +105,17 @@ This project will be a searchable database of pokemon using the Pokeapi. The use
 | Header and search/user input | H | 2hrs| 0.5hrs | 0.5hrs |
 | Incorporating the user input and API call | H | 2hrs| 2hrs | 2hrs |
 | Debugging of the user input/API call | H | 2hrs| 1hrs | 1hrs |
-| Style header and search bar | L | 3hrs| 0hrs | 0hrs |
+| Style header and search bar | L | 3hrs| 3hrs | 3hrs |
 | Pulling data and creating variables from API | H | 3hrs| 1hrs | 1hrs |
-| DOM manipulation to show pokemon from user search results | H | 3hrs| 2hrs | 2hrs |
-| CSS styling of pokemon information from search results | M | 3hrs| 0hrs | 0hrs |
+| DOM manipulation to show pokemon from user search results | H | 3hrs| 4hrs | 4hrs |
+| CSS styling of pokemon information from search results | M | 3hrs| 4hrs | 4hrs |
 | JS logic for super effective types | L | 3hrs| 0hrs | 0hrs |
 | JS logic for not very effective types | L | 3hrs| 0hrs | 0hrs |
 | DOM output to page from JS effectiveness logic | L | 2hrs| 0hrs | 0hrs |
 | CSS styling for type effectiveness | L | 3hrs| 0hrs | 0hrs |
 | Create the ability to save favorite pokemon | L | 3hrs| 0hrs | 0hrs |
-| CSS style of the save feature | L | 3hrs| 0hrs | 0hrs |
-| Total | H | 42hrs| 9.5hrs | 9.5hrs |
+| CSS style of the save feature | L | 3hrs| 1hrs | 1hrs |
+| Total | H | 42hrs| 19.5hrs | 19.5hrs |
 
 ## Code Snippet
 
