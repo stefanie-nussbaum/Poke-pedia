@@ -64,7 +64,7 @@ const findPokemon = async (input) => {
     pokemonEffectiveness.append(typeInfo)
 
 
-    // create type logic
+    // create type effectiveness logic
 
     for (let i = 0; i < typeArray.length; i++) {
       // console.log(typeArray[i].type.name)
@@ -158,8 +158,6 @@ const findPokemon = async (input) => {
         typeNotRecs.innerText = `${capitalize(type)} type pokemon are not very effective against fire, poison, and steel types.`
       }
     }
-    // console.log(types)
-    console.log(pokemonEffectiveness)
 
 
     //Favorites event handler goes inside function?
