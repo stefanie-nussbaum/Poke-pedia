@@ -24,6 +24,7 @@ const findPokemon = async (input) => {
     
     const name = document.createElement("h2")
     const addFavorite = document.createElement("button")
+    addFavorite.classList = "favButton"
     const id = document.createElement("p")
     const types = document.createElement("p")
     const height = document.createElement("p")
@@ -42,32 +43,6 @@ const findPokemon = async (input) => {
     
     types.innerText += typeArray.map(type => (
     capitalize(` ${type.type.name}`)))
-
-    // should I make another capitalize function that targets 2nd character??
-    // or better if I can just figure out how to concat types to "Type(s):" in innerText
-
-    
-    // let typeText = types.innerText
-    // let typeArray = []
-    // typeText = `Type(s): `
-    // typeArray.forEach()
-
-    // for (let i = 0; i < typeArray.length - 1; i++) {
-    //   if (i === 1) {
-    //     typeText.concat(", ")
-    //   }
-    //   typeText.concat(`${typeArray[i].type.name}`)
-    // }
-    // console.log(typeText)
-
-
-    // // Need to check if there is a second type and call a function to log it
-    // if (typeof typeArray[1] !== "undefined") {
-    //   secondType(typeArray, types.innerText)
-    // } else {
-    //   // return types.innerText = `Type(s): ${typeArray[0].type.name}`
-    // }
-
     
 
     //Should change units to m and lbs or kg (something that makes sense)
@@ -78,12 +53,11 @@ const findPokemon = async (input) => {
     pokemonDataContainer.append(image)
     pokemonDataContainer.append(pokemonInfo)
     pokemonInfo.append(name)
+    name.append(addFavorite)
     pokemonInfo.append(id)
     pokemonInfo.append(types)
     pokemonInfo.append(height)
     pokemonInfo.append(weight)
-
-
 
 
     return response
@@ -125,3 +99,8 @@ function searchFunction(e) {
   findPokemon(UserSearch)
   return UserSearch
 }
+
+
+// Local storage for favorites
+
+
