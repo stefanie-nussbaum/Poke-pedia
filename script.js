@@ -29,6 +29,7 @@ const findPokemon = async (input) => {
     const height = document.createElement("p")
     const weight = document.createElement("p")
     const image = document.createElement("img")
+    image.className = "pokemon-image"
     
     // assign data from api
     name.innerText = capitalize(response.data.name)
