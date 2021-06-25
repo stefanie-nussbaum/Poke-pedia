@@ -210,11 +210,11 @@ form.addEventListener("submit", searchFunction)
 
 function searchFunction(e) {
   e.preventDefault()
-  const UserSearch = document.querySelector("#blank").value
+  const userSearch = document.querySelector("#blank").value
   removePrevious()
-  findPokemon(UserSearch)
+  findPokemon(userSearch)
   // appendPokeData(response)
-  return UserSearch
+  return userSearch
 }
 
 
@@ -227,12 +227,15 @@ function saveToFavorites(pokeData) {
   pokeFavoritesArray.push(pokeData.data)
   console.log(pokeFavoritesArray)
   localStorage.setItem("favorites", JSON.stringify(pokeFavoritesArray))
+  console.log(localStorage)
 
   // localStorage.setItem("name", response.data.name)
   
 }
-
-addFavorites.addEventListener("click", saveToFavorites(savePokeObj))
+// Needs event handler!!
+addFavorites.addEventListener("click", () => {
+  saveToFavorites(savePokeObj)
+})
 
 
 
@@ -247,16 +250,12 @@ function viewFavorites() {
   favPoke = JSON.parse(favPoke)
   console.log(favPoke)
   
+  //Show info + make it clickable to bring through search+append
+  for (let i = 0; i < favPoke.length; i++) {
+    
+  }
 
 
-  // let savedPokemon = []
-  // let keys = Object.keys(localStorage)
-  // let i = keys.length
-
-  // while (i--) {
-  //   savedPokemon.push(localStorage.getItem(keys[i]))
-  // }
-  // return savedPokemon
 }
 
 
