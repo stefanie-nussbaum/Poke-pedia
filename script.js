@@ -4,66 +4,78 @@
 
 
 const form = document.querySelector("#searchForm")
-const favoritesButton = document.querySelector("#favorites-button")
+
 const pokemonDataContainer = document.querySelector("#data-container")
 const pokemonEffectiveness = document.querySelector("#effectiveness")
 const pokeFavoritesArray = []
+let savePokeObj = ""
 
 const findPokemon = async (input) => {
   try {
     const searchURL = `https://pokeapi.co/api/v2/pokemon/${input}/`
     const response = await axios.get(searchURL)
     // console.log(response.data)
+    appendPokeData(response)
 
     // create variables for the info
     
     //append html elements to the page
 
-    const pokemonInfo = document.createElement("div")
-    pokemonInfo.classList = "pokemon-info"
+    return response
+  } catch (error) {
+    console.error(error)
+  }
+}
+// findPokemon(UserSearch)
+
+function appendPokeData(response) {
+  savePokeObj = response
+  console.log(savePokeObj)
+  const pokemonInfo = document.createElement("div")
+  pokemonInfo.classList = "pokemon-info"
     
-    const name = document.createElement("h2")
-    const addFavorite = document.createElement("button")
-    addFavorite.classList = "favButton"
-    const id = document.createElement("p")
-    const types = document.createElement("p")
-    const height = document.createElement("p")
-    const weight = document.createElement("p")
-    const image = document.createElement("img")
-    image.className = "pokemon-image"
+  const name = document.createElement("h2")
+  // const addFavorite = document.createElement("button")
+  // addFavorite.classList = "favButton"
+  const id = document.createElement("p")
+  const types = document.createElement("p")
+  const height = document.createElement("p")
+  const weight = document.createElement("p")
+  const image = document.createElement("img")
+  image.className = "pokemon-image"
     
-    // assign data from api
-    name.innerText = capitalize(response.data.name)
-    id.innerText = `ID# ${response.data.id}`
-    const imageURL = response.data.sprites.other["official-artwork"].front_default
-    image.setAttribute("src", imageURL)
-    // image.setAttribute("alt", `${name}`)
-    const typeArray = response.data.types
-    // console.log(typeArray)
-    types.innerText = `Type(s):`
-    
-    types.innerText += typeArray.map(type => (
-    capitalize(` ${type.type.name}`)))
+  // assign data from api
+  name.innerText = capitalize(response.data.name)
+  id.innerText = `ID# ${response.data.id}`
+  const imageURL = response.data.sprites.other["official-artwork"].front_default
+  image.setAttribute("src", imageURL)
+  // image.setAttribute("alt", `${name}`)
+  const typeArray = response.data.types
+  // console.log(typeArray)
+  types.innerText = `Type(s):`
+   
+  types.innerText += typeArray.map(type => (
+  capitalize(` ${type.type.name}`)))
     
 
-    //Should change units to m and lbs or kg (something that makes sense)
-    height.innerText = `Height: ${(response.data.height) / 10}m`
-    weight.innerText = `Weight: ${(response.data.weight) / 10}kg`
+  //Should change units to m and lbs or kg (something that makes sense)
+  height.innerText = `Height: ${(response.data.height) / 10}m`
+  weight.innerText = `Weight: ${(response.data.weight) / 10}kg`
 
-    // create html elements and show results on page
-    pokemonDataContainer.append(image)
-    pokemonDataContainer.append(pokemonInfo)
-    pokemonInfo.append(name)
-    name.append(addFavorite)
-    pokemonInfo.append(id)
-    pokemonInfo.append(types)
-    pokemonInfo.append(height)
-    pokemonInfo.append(weight)
+  // create html elements and show results on page
+  pokemonDataContainer.append(image)
+  pokemonDataContainer.append(pokemonInfo)
+  pokemonInfo.append(name)
+  // name.append(addFavorite)
+  pokemonInfo.append(id)
+  pokemonInfo.append(types)
+  pokemonInfo.append(height)
+  pokemonInfo.append(weight)
 
-    const typeInfo = document.createElement("div")
-    typeInfo.className = "type-effectiveness"
-    typeInfo.innerText = `Type Effectiveness of ${capitalize(name.innerText)}`
-    pokemonEffectiveness.append(typeInfo)
+  const typeInfo = document.createElement("div")
+  typeInfo.className = "type-effectiveness"
+  typeInfo.innerText = `Type Effectiveness of ${capitalize(name.innerText)}`
+  pokemonEffectiveness.append(typeInfo)
 
 
     // create type effectiveness logic
@@ -161,17 +173,12 @@ const findPokemon = async (input) => {
       }
     }
 
-
-    //Favorites event handler goes inside function?
-    addFavorite.addEventListener("click", saveToFavorites(response.data))
+   //Favorites event handler goes inside function?
+    // addFavorite.addEventListener("click", saveToFavorites(response.data))
     
-
-    return response
-  } catch (error) {
-    console.error(error)
-  }
+  
 }
-// findPokemon(UserSearch)
+
 
 // Capitalize function
 
@@ -206,6 +213,7 @@ function searchFunction(e) {
   const UserSearch = document.querySelector("#blank").value
   removePrevious()
   findPokemon(UserSearch)
+  // appendPokeData(response)
   return UserSearch
 }
 
@@ -213,37 +221,46 @@ function searchFunction(e) {
 // Local storage for favorites
 
 
-// const favoritesButton = document.querySelector("#favoritesButton")
+const addFavorites = document.querySelector("#add-favorites")
 
 function saveToFavorites(pokeData) {
-  pokeFavoritesArray.push(pokeData)
+  pokeFavoritesArray.push(pokeData.data)
   console.log(pokeFavoritesArray)
+  localStorage.setItem("favorites", JSON.stringify(pokeFavoritesArray))
 
   // localStorage.setItem("name", response.data.name)
   
-  // console.log(localStorage)
-  // localStorage.setItem("name")
 }
 
+addFavorites.addEventListener("click", saveToFavorites(savePokeObj))
 
-// fav.addEventListener("click", saveToFavorites)
+
 
 
 // View favorites
 
+const favoritesButton = document.querySelector("#view-favorites")
+
 function viewFavorites() {
   removePrevious()
-  let savedPokemon = []
-  let keys = Object.keys(localStorage)
-  let i = keys.length
+  let favPoke = localStorage.getItem("favorites")
+  favPoke = JSON.parse(favPoke)
+  console.log(favPoke)
+  
 
-  while (i--) {
-    savedPokemon.push(localStorage.getItem(keys[i]))
-  }
-  return savedPokemon
+
+  // let savedPokemon = []
+  // let keys = Object.keys(localStorage)
+  // let i = keys.length
+
+  // while (i--) {
+  //   savedPokemon.push(localStorage.getItem(keys[i]))
+  // }
+  // return savedPokemon
 }
 
-// console.log(localStorage)
+
+favoritesButton.addEventListener("click", viewFavorites)
 
 
-// viewFavorites.addEventListener("click", viewFavorites)
+
