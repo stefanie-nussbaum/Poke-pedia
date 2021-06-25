@@ -4,15 +4,16 @@
 
 
 const form = document.querySelector("#searchForm")
-const fav = document.querySelector(".favButton")
+const favoritesButton = document.querySelector("#favorites-button")
 const pokemonDataContainer = document.querySelector("#data-container")
 const pokemonEffectiveness = document.querySelector("#effectiveness")
+const pokeFavoritesArray = []
 
 const findPokemon = async (input) => {
   try {
     const searchURL = `https://pokeapi.co/api/v2/pokemon/${input}/`
     const response = await axios.get(searchURL)
-    console.log(response.data)
+    // console.log(response.data)
 
     // create variables for the info
     
@@ -162,8 +163,8 @@ const findPokemon = async (input) => {
 
 
     //Favorites event handler goes inside function?
-    fav.addEventListener("click", saveToFavorites)
-
+    addFavorite.addEventListener("click", saveToFavorites(response.data))
+    
 
     return response
   } catch (error) {
@@ -178,10 +179,10 @@ function capitalize (word) {
   return word.charAt(0).toUpperCase() + word.slice(1)
 }
 
-// Function to anazlye and add a second type if necessary
-function secondType(array, string) {
-  return string = `Types: ${array[0].type.name}, ${array[1].type.name}`
-}
+// // Function to anazlye and add a second type if necessary
+// function secondType(array, string) {
+//   return string = `Types: ${array[0].type.name}, ${array[1].type.name}`
+// }
 
 
 // Remove old search results
@@ -212,15 +213,15 @@ function searchFunction(e) {
 // Local storage for favorites
 
 
-const favoritesButton = document.querySelector("#favoritesButton")
+// const favoritesButton = document.querySelector("#favoritesButton")
 
-function saveToFavorites() {
-  // e.preventDefault
-  let pokemon = {}
-  // pokemon.image = 
-  let nameString = JSON.stringify(response.data.name)
-  localStorage.setItem("name", nameString)
-  console.log(localStorage)
+function saveToFavorites(pokeData) {
+  pokeFavoritesArray.push(pokeData)
+  console.log(pokeFavoritesArray)
+
+  // localStorage.setItem("name", response.data.name)
+  
+  // console.log(localStorage)
   // localStorage.setItem("name")
 }
 
@@ -242,7 +243,7 @@ function viewFavorites() {
   return savedPokemon
 }
 
-console.log(localStorage)
+// console.log(localStorage)
 
 
-favoritesButton.addEventListener("click", viewFavorites)
+// viewFavorites.addEventListener("click", viewFavorites)
