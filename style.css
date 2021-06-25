@@ -95,6 +95,7 @@ button {
 
 #basic-info {
   display: flex;
+  /* justify-content: flex-start; */
 
 }
 
@@ -102,6 +103,8 @@ button {
   display: flex;
   justify-content: center;
   flex-wrap: row wrap;
+  margin-top: 35px;
+  background-color: #ffffff3f;
 }
 
 #favoritesButton {
@@ -120,23 +123,63 @@ button {
 
 
 
-@media only screen and (max-width: 700px) {
-  div {
-    display: block;
+@media only screen and (max-width: 600px) {
+ 
+  h1 {
+    font-size: 10vw;
+  }
+
+  h2 {
+    margin: 10px 5px;
+  }
+
+  p {
+    margin: 5px 5px;
+  }
+  
+  body {
+    background-position: center top;
+  }
+
+  div.pokemon-info {
+    margin-top: 15px;
+  }
+
+  .pokemon-image {
+    width: 80%;
+    height: auto;
+    display: flex;
+    /* justify-content: center; */
+
   }
   
   .pokemon-info {
-    display: block;
-    /* flex-wrap: column wrap; */
+    display: flex;
+    /* justify-content: center; */
+    /* justify-self: center; */
+    height: auto;
+    
+  }
+
+  #pokeball {
+    height: 10vw;
+    width: auto;
+    margin-top: 8vw;
   }
   
   #data-container {
     display: flex;
-    /* flex-wrap: row wrap; */
+    flex-direction: column;
+    align-items: center;
+    /* justify-self: flex-start; */
   }
 
   #basic-info {
     display: flex;
+    /* justify-content: center; */
+    margin-top: 0px;
+    /* justify-self: center; */
+    
     /* flex-wrap: column wrap; */
   }
 }
