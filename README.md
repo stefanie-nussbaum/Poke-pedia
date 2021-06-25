@@ -109,12 +109,13 @@ This project will be a searchable database of pokemon using the Pokeapi. The use
 | Pulling data and creating variables from API | H | 3hrs| 1hrs | 1hrs |
 | DOM manipulation to show pokemon from user search results | H | 3hrs| 4hrs | 4hrs |
 | CSS styling of pokemon information from search results | M | 3hrs| 4hrs | 4hrs |
-| JS logic for super effective types | L | 3hrs| 0hrs | 0hrs |
-| JS logic for not very effective types | L | 3hrs| 0hrs | 0hrs |
-| DOM output to page from JS effectiveness logic | L | 2hrs| 0hrs | 0hrs |
-| CSS styling for type effectiveness | L | 3hrs| 0hrs | 0hrs |
+| JS logic for super effective types | L | 3hrs| 3hrs | 3hrs |
+| JS logic for not very effective types | L | 3hrs| 2hrs | 2hrs |
+| DOM output to page from JS effectiveness logic | L | 2hrs| 3hrs | 3hrs |
+| CSS styling for type effectiveness | L | 3hrs| 3hrs | 3hrs |
 | Create the ability to save favorite pokemon | L | 3hrs| 0hrs | 0hrs |
 | CSS style of the save feature | L | 3hrs| 1hrs | 1hrs |
+| (added) Media query styling | M | 2hrs| 2hrs | 2hrs |
 | Total | H | 42hrs| 19.5hrs | 19.5hrs |
 
 ## Code Snippet
