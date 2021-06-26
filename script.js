@@ -253,12 +253,15 @@ function viewFavorites() {
   //Show info + make it clickable to bring through search+append
   for (let i = 0; i < favPoke.length; i++) {
     const favoriteInfo = document.createElement("div")
+    favoriteInfo.className = "favorite-container"
     const name = document.createElement("h3")
+    name.className = "favorite-name"
     const image = document.createElement("img")
     image.className = "favorite-pokemon-image"
-    const imageURL = favPoke.sprites.other["official-artwork"].front_default
+    const imageURL = favPoke[i].sprites.other["official-artwork"].front_default
     image.setAttribute("src", imageURL)
-    name.innerText = capitalize(favPoke.name)
+    name.innerText = capitalize(favPoke[i].name)
+
     pokemonDataContainer.append(favoriteInfo)
     favoriteInfo.append(image)
     favoriteInfo.append(name)
