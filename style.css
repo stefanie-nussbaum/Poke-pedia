@@ -38,7 +38,6 @@ p {
 form {
   display: flex;
   justify-content: center;
-  /* flex-direction: row; */
 }
 
 input {
@@ -106,7 +105,6 @@ button {
 
 #basic-info {
   display: flex;
-  /* justify-content: flex-start; */
 
 }
 
@@ -176,16 +174,21 @@ button {
 
   }
 
+  .favorite-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-items: center;
+  }
+
   .favorite-pokemon-image {
-    width: 80%;
+    width: 300px;
     height: auto;
-    
+    justify-content: center;
   }
   
   .pokemon-info {
     display: flex;
-    /* justify-content: center; */
-    /* justify-self: center; */
     height: auto;
     
   }
@@ -200,15 +203,10 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-self: flex-start; */
   }
 
   #basic-info {
     display: flex;
-    /* justify-content: center; */
     margin-top: 0px;
-    /* justify-self: center; */
-    
-    /* flex-wrap: column wrap; */
   }
 }

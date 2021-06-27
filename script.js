@@ -1,5 +1,4 @@
 
-
 // Make API request function based on user input
 
 
@@ -14,19 +13,20 @@ const findPokemon = async (input) => {
   try {
     const searchURL = `https://pokeapi.co/api/v2/pokemon/${input}/`
     const response = await axios.get(searchURL)
-    // console.log(response.data)
     appendPokeData(response)
 
     // create variables for the info
     
-    //append html elements to the page
+ 
 
     return response
   } catch (error) {
     console.error(error)
   }
 }
-// findPokemon(UserSearch)
+
+
+ //append html elements to the page
 
 function appendPokeData(response) {
   savePokeObj = response
@@ -35,8 +35,6 @@ function appendPokeData(response) {
   pokemonInfo.classList = "pokemon-info"
     
   const name = document.createElement("h2")
-  // const addFavorite = document.createElement("button")
-  // addFavorite.classList = "favButton"
   const id = document.createElement("p")
   const types = document.createElement("p")
   const height = document.createElement("p")
@@ -49,9 +47,7 @@ function appendPokeData(response) {
   id.innerText = `ID# ${response.data.id}`
   const imageURL = response.data.sprites.other["official-artwork"].front_default
   image.setAttribute("src", imageURL)
-  // image.setAttribute("alt", `${name}`)
   const typeArray = response.data.types
-  // console.log(typeArray)
   types.innerText = `Type(s):`
    
   types.innerText += typeArray.map(type => (
@@ -66,7 +62,6 @@ function appendPokeData(response) {
   pokemonDataContainer.append(image)
   pokemonDataContainer.append(pokemonInfo)
   pokemonInfo.append(name)
-  // name.append(addFavorite)
   pokemonInfo.append(id)
   pokemonInfo.append(types)
   pokemonInfo.append(height)
@@ -173,9 +168,7 @@ function appendPokeData(response) {
       }
     }
 
-   //Favorites event handler goes inside function?
-    // addFavorite.addEventListener("click", saveToFavorites(response.data))
-    
+      
   
 }
 
@@ -185,11 +178,6 @@ function appendPokeData(response) {
 function capitalize (word) {
   return word.charAt(0).toUpperCase() + word.slice(1)
 }
-
-// // Function to anazlye and add a second type if necessary
-// function secondType(array, string) {
-//   return string = `Types: ${array[0].type.name}, ${array[1].type.name}`
-// }
 
 
 // Remove old search results
@@ -210,10 +198,9 @@ form.addEventListener("submit", searchFunction)
 
 function searchFunction(e) {
   e.preventDefault()
-  const userSearch = document.querySelector("#blank").value
+  const userSearch = document.querySelector("#input").value
   removePrevious()
   findPokemon(userSearch)
-  // appendPokeData(response)
   return userSearch
 }
 
@@ -228,8 +215,6 @@ function saveToFavorites(pokeData) {
   console.log(pokeFavoritesArray)
   localStorage.setItem("favorites", JSON.stringify(pokeFavoritesArray))
   console.log(localStorage)
-
-  // localStorage.setItem("name", response.data.name)
   
 }
 // Needs event handler!!
@@ -250,7 +235,7 @@ function viewFavorites() {
   favPoke = JSON.parse(favPoke)
   console.log(favPoke)
   
-  //Show info + make it clickable to bring through search+append
+
   for (let i = 0; i < favPoke.length; i++) {
     const favoriteInfo = document.createElement("div")
     favoriteInfo.className = "favorite-container"
@@ -267,9 +252,7 @@ function viewFavorites() {
     favoriteInfo.append(name)
   }
 
-
 }
-
 
 favoritesButton.addEventListener("click", viewFavorites)
 
