@@ -113,17 +113,40 @@ This project will be a searchable database of pokemon using the Pokeapi. The use
 | JS logic for not very effective types | L | 3hrs| 2hrs | 2hrs |
 | DOM output to page from JS effectiveness logic | L | 2hrs| 3hrs | 3hrs |
 | CSS styling for type effectiveness | L | 3hrs| 3hrs | 3hrs |
-| Create the ability to save favorite pokemon | L | 3hrs| 0hrs | 0hrs |
-| CSS style of the save feature | L | 3hrs| 1hrs | 1hrs |
+| Create the ability to save favorite pokemon | L | 3hrs| 6hrs | 6hrs |
+| CSS style of the save feature | L | 3hrs| 3hrs | 3hrs |
 | (added) Media query styling | M | 2hrs| 2hrs | 2hrs |
-| Total | H | 42hrs| 19.5hrs | 19.5hrs |
+| Total | H | 42hrs| 40.5hrs | 40.5hrs |
 
 ## Code Snippet
 
 ```
+const favoritesButton = document.querySelector("#view-favorites")
 
+function viewFavorites() {
+  removePrevious()
+  let favPoke = localStorage.getItem("favorites")
+  favPoke = JSON.parse(favPoke)
+  console.log(favPoke)
+  
+  for (let i = 0; i < favPoke.length; i++) {
+    const favoriteInfo = document.createElement("div")
+    favoriteInfo.className = "favorite-container"
+    const name = document.createElement("h3")
+    name.className = "favorite-name"
+    const image = document.createElement("img")
+    image.className = "favorite-pokemon-image"
+    const imageURL = favPoke[i].sprites.other["official-artwork"].front_default
+    image.setAttribute("src", imageURL)
+    name.innerText = capitalize(favPoke[i].name)
+
+    pokemonDataContainer.append(favoriteInfo)
+    favoriteInfo.append(image)
+    favoriteInfo.append(name)
+  }
+}
 
 ```
 
 ## Change Log
-
+- Added time for styling media query for small/mobile screens
