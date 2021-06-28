@@ -6,7 +6,7 @@
 
 ## Project Description
 
-This project will be a searchable database of pokemon using the Pokeapi. The user will be able to search for a pokemon by name and see lots of information about it such as the type(s), id, height, weight, and an image. The user will also get information on effective types of pokemon to use against the selected pokemon in a battle. The user will also be able to save pokemon to their favorites to come back to later.
+This project will be a searchable database of pokemon using the Pokeapi. The user will be able to search for a pokemon by name and see lots of information about it such as the type(s), id, height, weight, and an image. The user will also get information on how effective the current pokemon's type is against other types of pokemon. The user will also be able to save pokemon to their favorites to view later.
 
 ## API and Data Sample
 
@@ -87,7 +87,7 @@ This project will be a searchable database of pokemon using the Pokeapi. The use
 |June 22| Project Approval / Core Application Structure (HTML, CSS, etc.) / Pseudocode | Complete
 |June 23| HTML setup / style HTML elements / Set up API / DOM Output data | Complete
 |June 24| Style output data / resposive styling / MVP | Complete
-|June 25| JS logic / Style logic output / Save feature / RMVP | Incomplete
+|June 25| JS logic / Style logic output / Save feature / RMVP | Complete
 |June 28| Presentations | Incomplete
 
 ## Priority Matrix
@@ -149,4 +149,4 @@ function viewFavorites() {
 ```
 
 ## Change Log
-- Added time for styling media query for small/mobile screens
+- Added time for styling media query for small/mobile screens and responsive design
