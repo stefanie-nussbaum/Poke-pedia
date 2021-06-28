@@ -2,7 +2,7 @@
 
 ## Project Name
 
-[Poke-pedia](URL)
+[Poke-pedia](https://stefanie-nussbaum.github.io/Poke-pedia/)
 
 ## Project Description
 
