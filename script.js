@@ -1,7 +1,4 @@
 
-// Make API request function based on user input
-
-
 const form = document.querySelector("#searchForm")
 
 const pokemonDataContainer = document.querySelector("#data-container")
@@ -9,16 +6,14 @@ const pokemonEffectiveness = document.querySelector("#effectiveness")
 const pokeFavoritesArray = []
 let savePokeObj = ""
 
+// Make API request function based on user input
+
 const findPokemon = async (input) => {
   try {
     const searchURL = `https://pokeapi.co/api/v2/pokemon/${input}/`
     const response = await axios.get(searchURL)
     appendPokeData(response)
-
-    // create variables for the info
     
- 
-
     return response
   } catch (error) {
     console.error(error)
@@ -26,14 +21,15 @@ const findPokemon = async (input) => {
 }
 
 
- //append html elements to the page
+ // Display data on page
 
 function appendPokeData(response) {
   savePokeObj = response
   console.log(savePokeObj)
   const pokemonInfo = document.createElement("div")
   pokemonInfo.classList = "pokemon-info"
-    
+  
+  // Create variables for API information
   const name = document.createElement("h2")
   const id = document.createElement("p")
   const types = document.createElement("p")
@@ -54,7 +50,6 @@ function appendPokeData(response) {
   capitalize(` ${type.type.name}`)))
     
 
-  //Should change units to m and lbs or kg (something that makes sense)
   height.innerText = `Height: ${(response.data.height) / 10}m`
   weight.innerText = `Weight: ${(response.data.weight) / 10}kg`
 
@@ -69,7 +64,7 @@ function appendPokeData(response) {
 
   const typeInfo = document.createElement("div")
   typeInfo.className = "type-effectiveness"
-  typeInfo.innerText = `Type Effectiveness of ${capitalize(name.innerText)}`
+  typeInfo.innerText = `Type Effectiveness of ${capitalize(name.innerText)}:`
   pokemonEffectiveness.append(typeInfo)
 
 
@@ -168,8 +163,6 @@ function appendPokeData(response) {
       }
     }
 
-      
-  
 }
 
 
@@ -205,19 +198,17 @@ function searchFunction(e) {
 }
 
 
-// Local storage for favorites
+// Adding to favorites
 
 
 const addFavorites = document.querySelector("#add-favorites")
 
 function saveToFavorites(pokeData) {
   pokeFavoritesArray.push(pokeData.data)
-  console.log(pokeFavoritesArray)
   localStorage.setItem("favorites", JSON.stringify(pokeFavoritesArray))
-  console.log(localStorage)
   
 }
-// Needs event handler!!
+
 addFavorites.addEventListener("click", () => {
   saveToFavorites(savePokeObj)
 })
@@ -235,6 +226,7 @@ function viewFavorites() {
   favPoke = JSON.parse(favPoke)
   console.log(favPoke)
   
+  // Looping through favorites and appending each name and image to the page
 
   for (let i = 0; i < favPoke.length; i++) {
     const favoriteInfo = document.createElement("div")
