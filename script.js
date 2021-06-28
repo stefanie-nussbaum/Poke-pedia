@@ -1,6 +1,6 @@
 
+// Global variables
 const form = document.querySelector("#searchForm")
-
 const pokemonDataContainer = document.querySelector("#data-container")
 const pokemonEffectiveness = document.querySelector("#effectiveness")
 const pokeFavoritesArray = []
