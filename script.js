@@ -194,7 +194,7 @@ function searchFunction(e) {
   e.preventDefault()
   const userSearch = document.querySelector("#input").value
   removePrevious()
-  findPokemon(userSearch)
+  findPokemon(userSearch.toLowerCase())
   return userSearch
 }
 
